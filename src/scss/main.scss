@@ -1,0 +1,29 @@
+// Common files
+@import './utils/nullstyle.scss';
+@import './utils/variables.scss';
+@import './utils/fonts.scss';
+@import './utils/mixins.scss';
+@import './utils/vendors.scss';
+
+
+// Header Block
+@import './utils/header.scss';
+@import './utils/navbar.scss';
+//
+
+
+// Main Block
+@import './utils/homepage.scss';
+@import './utils/stats.scss';
+@import './utils/instruction.scss';
+@import './utils/execute.scss';
+// @import './utils/*.scss';
+//
+
+
+// Footer Block
+@import './utils/footer.scss';
+@import './utils/settings.scss';
+//
+
+

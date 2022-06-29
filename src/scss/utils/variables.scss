@@ -1,0 +1,29 @@
+$bg-black: #1F2229;
+$bg-white: #FFFFFF;
+$bg-gray: #39404C;
+$bg-gray-two: #262B36;
+$bg-gray-three: #8F9399;
+$bg-blue:  #2ca5d2;
+
+
+$txt-black: #1F2229;
+$txt-gray: #8F9399;
+$txt-white: #FFFFFF;
+$txt-blue:  #3FCBFF;
+$txt-blue-two:  #2ca5d2;
+
+$large-device-1200: 1200px;
+$special-device-1057: 1057px;
+$medium-device-991: 992px;
+$small-device-767: 768px;
+$extra-small-device-479: 480px;
+$custom-device-319: 320px;
+
+@function mq-calculate() {
+    @return (100vw - 320px) / (1200 - 320);
+}
+
+
+
+
+

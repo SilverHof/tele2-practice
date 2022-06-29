@@ -1,0 +1,82 @@
+body {
+    position: relative;
+    background-color: $bg-black;
+    font-family: 'Tele2 TextSans Regular', Helvetica, Arial, sans-serif;
+    color: $txt-white;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.container {
+    max-width: 1146px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+}
+
+.text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    word-break: keep-all;
+}
+
+.btn {
+    padding: 15px 40px 15px 40px;
+    border-radius: 48px;
+    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: $txt-black;
+    transition: 1s ease;
+
+    &:hover {
+        transform: scale(1.1) translateX(30px);
+        transition-duration: 1s;
+        transition-timing-function: ease;
+        color: $txt-blue-two;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.success {
+    display: none;
+}
+
+.fail {
+    display: none;
+}
+
+
+/* Large Devices, Wide Screens */
+@media (max-width: $large-device-1200) {
+    .container {
+        max-width: calc(320px + (1146 - 320) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    .title {
+        font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    .text {
+        font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1200 - 320)));
+        line-height: calc(27px + (30 - 27) * ((100vw - 320px) / (1200 - 320)));
+    }
+}

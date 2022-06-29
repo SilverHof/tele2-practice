@@ -1,0 +1,99 @@
+.homepage {
+    margin-bottom: 150px;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 86px;
+    }
+
+    &__sale-text {
+        margin-bottom: 48px;
+    }
+
+    &__text {
+        margin-bottom: 56px;
+    }
+
+    &__main-title {
+        margin-bottom: 24px;
+        font-size: 68px;
+        line-height: 100%;
+        text-transform: uppercase;
+        color: $txt-white;
+        span {
+            color: $txt-blue;
+        }
+    }
+
+    &__accept-btn {
+        max-width: 230px;
+    }
+
+    &__img-box {
+        padding-top: 56px;
+        img {
+            width: 584px;
+            height: auto;
+        }
+    }
+}
+
+
+/* Large Devices, Wide Screens */
+@media (max-width: $large-device-1200) {
+    .homepage {
+        margin-bottom: calc(70px + (150 - 70) * mq-calculate());
+    }
+
+    .homepage__sale-text {
+        margin-bottom: calc(40px + (48 - 40) * mq-calculate());
+    }
+
+    .homepage__main-title {
+        font-size: calc(36px + (68 - 36) * mq-calculate());
+        margin-bottom: calc(16px + (24 - 16) * mq-calculate());
+    }
+
+    .homepage__text {
+        margin-bottom: calc(40px + (56 - 40) * mq-calculate());
+    }
+
+    .homepage__img-box {
+        img {
+            width: calc(316px + (584 - 316) * mq-calculate());
+        }
+    }
+}
+
+
+/* Medium Devices, Desktops */
+@media (max-width: $medium-device-991) {
+    .homepage__inner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: none;
+        gap: calc(48px + (100 - 48) * ((100vw - 320px) / (1200 - 320)));
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .homepage__content {
+        padding-top: calc(24px + (86 - 24) * ((100vw - 320px) / (1200 - 320)));
+        max-width: 600px;
+    }
+
+    .homepage__accept-btn {
+        align-self: center;
+    }
+
+    .homepage__img-box {
+        padding-top: 0px;
+        align-self: center;
+    }
+}

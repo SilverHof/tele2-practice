@@ -1,0 +1,190 @@
+.instruction {
+    margin-bottom: 148px;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__content {
+        flex-direction: column;
+        max-width: 360px;
+    }
+
+    &__title {
+        margin-bottom: 64px;
+        span {
+            color: $txt-blue;
+        }
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    &__form-text {
+        font-size: 13px;
+        line-height: 18px;
+        color: $txt-gray;
+        margin-bottom: 5px;
+    }
+
+    &__text {
+        max-width: 400px;
+    }
+
+    &__input {
+        background-color: $bg-black;
+        color: $txt-white;
+        margin-bottom: 5px;
+    }
+
+    &__decor {
+        margin-bottom: 30px;
+        height: 2px;
+        width: 360px;
+        background-color: $bg-gray;
+    }
+
+    &__accept-data {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__accept-data-input {
+        @include flexible;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $bg-white;
+        background-color: $bg-black;
+    }
+
+
+    &__accept-data-text {
+        max-width: 300px;
+        margin-bottom: 32px;
+        a {
+            text-decoration: underline;
+            &:visited {
+                color: $txt-white;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__send-btn {
+        margin-bottom: 48px;
+    }
+
+    &__success-box {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 60px 12px 12px;
+        background-color: $bg-gray-two;
+        border-radius: 8px;
+    }
+
+    &__fail-box {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 60px 12px 12px;
+        background-color: $bg-gray-two;
+        border-radius: 8px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__num {
+        background-color: $bg-black;
+        width: 80px;
+        height: 80px;
+        border: 2px solid $bg-gray;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 40px;
+        color: $txt-blue;
+        
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media (max-width: $large-device-1200) {
+    .instruction {
+        margin-bottom: calc(70px + (150 - 70) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    .instruction__title {
+        margin-bottom: calc(40px + (64 - 40) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    .instruction__num {
+        width: calc(56px + (80 - 56) * ((100vw - 320px) / (1200 - 320)));
+        height: calc(56px + (80 - 56) * ((100vw - 320px) / (1200 - 320)));
+    }
+
+    .instruction__decor {
+        width: calc(268px + (360 - 268) * ((100vw - 320px) / (1200 - 320))); // вот тут функцию можно вынести
+    
+    }
+}
+
+
+/* Medium Devices, Desktops */
+@media (max-width: $medium-device-991) {
+    .instruction__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 600px;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    .instruction__title {
+        width: 100%;
+    }
+
+    .instruction__send-btn {
+        align-self: center;
+    }
+
+    .instruction__success-box {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .instruction__fail-box {
+        position: relative;
+        margin-bottom: 20px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media (max-width: $small-device-767) {
+    .instruction__list {
+        gap: 16px;
+    }
+
+    .instruction__item {
+        flex-direction: column;
+        align-items: start;
+        gap: 16px;
+    }
+}
