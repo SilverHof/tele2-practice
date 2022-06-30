@@ -6,9 +6,9 @@ import { firebaseSetup } from './firebase';
 
 
 const appMain = () => {
+    firebaseSetup();
     changeLocation();
     instructionForm();
-    firebaseSetup();
 }
 
 
