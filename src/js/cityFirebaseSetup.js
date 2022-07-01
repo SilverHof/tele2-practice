@@ -5,13 +5,12 @@ import { getFirestore, collection, getDocs, doc } from 'firebase/firestore';
 
 
 export const cityFirebaseSetup = () => {
+    // run a function
     getFirebaseApi();
-
 
     // init service
     const dataBase = getFirestore();
-    
-    
+        
     // collection reference
     const collectionRef = collection(dataBase, 'city');
 
