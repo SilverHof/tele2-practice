@@ -7,7 +7,6 @@ export const instructionForm = () => {
         const phoneInput = document.querySelector('.instruction__input');
 
         phoneInput.addEventListener('input', toMask, false);
-        phoneInput.focus();
 
         setCursorPosition(3, phoneInput);
         console.log(phoneInput.value);
@@ -15,7 +14,6 @@ export const instructionForm = () => {
 
 
     function setCursorPosition(position, event) {
-        event.focus();
 
         let range;
 
@@ -79,27 +77,3 @@ export const instructionForm = () => {
         }
     }
 }
-
-
-    
-
-
-    // document.addEventListener('DOMContentLoaded', phoneValidate);
-
-    // function phoneValidate(){
-    //     const phoneInput = document.querySelector('.instruction__input');
-        
-
-    //     phoneInput.addEventListener('input', onPhoneInput);
-
-        
-    //     function onPhoneInput(event) {
-    //         const inputValue = event.target.value;
-    //         console.log(inputValue);
-            
-    //     }
-
-    //     function getInputNumberValue(input) {
-    //         return input.value.replace(/\D/g, '');
-    //     }
-    // }

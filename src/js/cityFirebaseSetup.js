@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { getFirebaseApi } from './getFirebaseApi.js';
-import { getFirestore, collection, getDocs, doc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 
 
@@ -30,7 +30,7 @@ export const cityFirebaseSetup = () => {
 
 
             // get key "name" from array of ojects to array of values
-            let cityNameValues = cityArray.map(c => c.name);
+            const cityNameValues = cityArray.map(c => c.name);
             
             // get length of array cityNameValues
             const numberOfCityValue = cityNameValues.length;

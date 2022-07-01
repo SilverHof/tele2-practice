@@ -1,3 +1,4 @@
+import { doc } from 'firebase/firestore';
 import { toggleItemClass } from './changeClassList.js';
 
 
@@ -40,6 +41,19 @@ export const changeLocation = () => {
 
         cityName.textContent = target;
         headerLocationBtn.textContent = target;
+        
+
+        let key = 'city';
+        let value = target;
+        localStorage.setItem(key, value);
+        console.log(value);
+        
+
+        // if (localStorage['city']) {
+        //     cityName.textContent = localStorage.getItem('city');
+        //     console.log('dfasadfddfa');
+        // }
+
 
 
         toggleItemClass(mainBlock, 'hidden');
