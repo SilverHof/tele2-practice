@@ -5,8 +5,8 @@ export const checkLocalStorage = () => {
 
 
     // check if local storage have a key
-    if (localStorage.getItem('city')) {
-        cityName.textContent = localStorage.getItem('city');
-        headerLocationBtn.textContent = localStorage.getItem('city');
+    if (localStorage.getItem('current-city')) {
+        cityName.textContent = localStorage.getItem('current-city');
+        headerLocationBtn.textContent = localStorage.getItem('current-city');
     }
 }

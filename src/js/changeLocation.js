@@ -1,9 +1,43 @@
-import { doc } from 'firebase/firestore';
 import { toggleItemClass } from './changeClassList.js';
 
 
 export const changeLocation = () => {
-    //getting header block's elements
+    //functions for listeners
+    const showLocationBox = () => {
+        toggleItemClass(changeLocationBox, 'hidden');
+    };
+
+
+    const showNavbarBlock = () => {
+        toggleItemClass(mainBlock, 'hidden');
+        toggleItemClass(navbarBlock, 'hidden');
+    };
+
+
+    const changeLocationName = (event) => {
+        // get location from clicked element
+        const target = event.target.textContent;
+        const cityName = document.querySelector('.change-location-box__city');
+
+
+        // add new location to text element and button
+        cityName.textContent = target;
+        headerLocationBtn.textContent = target;
+
+
+        // add new item to local storage
+        const key = 'current-city';
+        const value = target;
+        localStorage.setItem(key, value);
+
+
+        toggleItemClass(mainBlock, 'hidden');
+        toggleItemClass(navbarBlock, 'hidden');
+        toggleItemClass(changeLocationBox, 'hidden');
+    }
+
+
+    //get header block's elements
     const headerLocationBtn = document.querySelector('.header__location-btn');
 
     const changeLocationBox = document.querySelector('.header__change-location-box');
@@ -16,48 +50,10 @@ export const changeLocation = () => {
     const navbarList = document.querySelector('.navbar__list');
 
 
-    //adding listeners to elements
+    //add listeners to elements
     headerLocationBtn.addEventListener('click', showLocationBox);
     acceptLocationBtn.addEventListener('click', showLocationBox);
     changeLocationBtn.addEventListener('click', showNavbarBlock);
     navbarList.addEventListener('click', changeLocationName);
 
-
-    //functions for listeners
-    function showLocationBox() {
-        toggleItemClass(changeLocationBox, 'hidden');
-    };
-
-
-    function showNavbarBlock() {
-        toggleItemClass(mainBlock, 'hidden');
-        toggleItemClass(navbarBlock, 'hidden');
-    };
-
-    
-    function changeLocationName(event) {
-        const target = event.target.textContent; // Desctruction
-        const cityName = document.querySelector('.change-location-box__city');
-
-        cityName.textContent = target;
-        headerLocationBtn.textContent = target;
-        
-
-        let key = 'city';
-        let value = target;
-        localStorage.setItem(key, value);
-        console.log(value);
-        
-
-        // if (localStorage['city']) {
-        //     cityName.textContent = localStorage.getItem('city');
-        //     console.log('dfasadfddfa');
-        // }
-
-
-
-        toggleItemClass(mainBlock, 'hidden');
-        toggleItemClass(navbarBlock, 'hidden');
-        toggleItemClass(changeLocationBox, 'hidden');
-    }
 }
