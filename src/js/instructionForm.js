@@ -1,4 +1,6 @@
-import { addItemClass, toggleItemClass } from './changeClassList.js';
+import { toggleItemClass, getCountOfDigits } from './extraFunctions.js';
+import { checkPhoneNumbers } from './checkPhoneNumbers.js';
+
 
 
 export const instructionForm = () => {
@@ -7,15 +9,12 @@ export const instructionForm = () => {
         const phoneInput = document.querySelector('.instruction__input');
 
         phoneInput.addEventListener('input', toMask, false);
-        phoneInput.focus();
 
         setCursorPosition(3, phoneInput);
-        console.log(phoneInput.value);
     });
 
 
     function setCursorPosition(position, event) {
-        event.focus();
 
         let range;
 
@@ -62,44 +61,40 @@ export const instructionForm = () => {
 
     function sendData(event) {
         event.preventDefault();
+        
+        // get accept check
         const acceptDataInput = document.querySelector('.instruction__accept-data-input');
 
-
+        // get phone input
         const phoneInput = document.querySelector('.instruction__input');
-        console.log(phoneInput.value);
-        
 
+        // get phone input's value 
+        const phoneValue = phoneInput.value;
         
-        if(acceptDataInput.checked) {
-            toggleItemClass(successBox, 'success');
-            addItemClass(failBox, 'fail');
-        } else {
+        
+        // check if there is a number in database or not
+        if (getCountOfDigits(phoneValue) == 11 && acceptDataInput.checked) {
+            // run a function to check a number in database
+            checkPhoneNumbers();
+
+        } else if (!(getCountOfDigits(phoneValue) == 11) && !(acceptDataInput.checked)) {
+            
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Введите номер телефона и примите условия`;
             toggleItemClass(failBox, 'fail');
-            addItemClass(successBox, 'success');         
-        }
+            
+        } else if (!(getCountOfDigits(phoneValue) == 11) && acceptDataInput.checked) {
+
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Введите номер телефона`;
+            toggleItemClass(failBox, 'fail');
+
+        } else if (getCountOfDigits(phoneValue) == 11 && !acceptDataInput.checked) {
+
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Необходимо принять условия соглашения`;
+            toggleItemClass(failBox, 'fail');
+
+        } 
     }
 }
-
-
-    
-
-
-    // document.addEventListener('DOMContentLoaded', phoneValidate);
-
-    // function phoneValidate(){
-    //     const phoneInput = document.querySelector('.instruction__input');
-        
-
-    //     phoneInput.addEventListener('input', onPhoneInput);
-
-        
-    //     function onPhoneInput(event) {
-    //         const inputValue = event.target.value;
-    //         console.log(inputValue);
-            
-    //     }
-
-    //     function getInputNumberValue(input) {
-    //         return input.value.replace(/\D/g, '');
-    //     }
-    // }
