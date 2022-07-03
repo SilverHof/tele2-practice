@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { getFirebaseApi } from './getFirebaseApi.js';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { getCityApi } from './getCityApi.js';
@@ -17,7 +16,6 @@ export const cityFirebaseSetup = () => {
     const collectionRef = collection(dataBase, 'city');
 
     // run a function to get city api > add to an array > fill to a navbar block
-    // const get = getCityApi(collectionRef);
     if (localStorage.getItem('city')) {
         fillNavbarByLocalStorage();
     } else {

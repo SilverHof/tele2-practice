@@ -1,4 +1,7 @@
-import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';
+import { addPhoneNumbers } from './addPhoneNumbers.js';
+import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';import { getFirebaseApi } from './getFirebaseApi.js';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
+
 
 
 export const instructionForm = () => {
@@ -69,10 +72,17 @@ export const instructionForm = () => {
         // get phone input's value 
         const phoneValue = phoneInput.value;
         
-
+        
         if (getCountOfDigits(phoneValue) == 11 && acceptDataInput.checked) {
-            toggleItemClass(successBox, 'success');
-            addItemClass(failBox, 'fail');
+            
+            if (5==3) {
+                
+            } else {
+                addPhoneNumbers();
+                toggleItemClass(successBox, 'success');
+                addItemClass(failBox, 'fail');
+            }
+            
             
         } else {
             toggleItemClass(failBox, 'fail');
