@@ -1,6 +1,5 @@
-import { addPhoneNumbers } from './addPhoneNumbers.js';
-import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';import { getFirebaseApi } from './getFirebaseApi.js';
-import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
+import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';
+import { checkPhoneNumbers } from './checkPhoneNumbers.js';
 
 
 
@@ -12,7 +11,6 @@ export const instructionForm = () => {
         phoneInput.addEventListener('input', toMask, false);
 
         setCursorPosition(3, phoneInput);
-        console.log(phoneInput.value);
     });
 
 
@@ -73,20 +71,30 @@ export const instructionForm = () => {
         const phoneValue = phoneInput.value;
         
         
+        // check if there is a number in database or not
         if (getCountOfDigits(phoneValue) == 11 && acceptDataInput.checked) {
+            // run a function to check a number in database
+            checkPhoneNumbers();
+
+        } else if ((getCountOfDigits(phoneValue) == !11) && !(acceptDataInput.checked)) {
             
-            if (5==3) {
-                
-            } else {
-                addPhoneNumbers();
-                toggleItemClass(successBox, 'success');
-                addItemClass(failBox, 'fail');
-            }
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Введите номер телефона и примите условия`;
+        
             
-            
+        } else if (!(getCountOfDigits(phoneValue) == 11) && acceptDataInput.checked) {
+
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Введите номер телефона`;
+
+        } else if (getCountOfDigits(phoneValue) == 11 && !acceptDataInput.checked) {
+
+            const failText = document.querySelector('.instruction__fail-text');
+            failText.textContent = `Необходимо принять условия соглашения`;
+
         } else {
-            toggleItemClass(failBox, 'fail');
-            addItemClass(successBox, 'success'); 
+            // toggleItemClass(failBox, 'fail');
+            // addItemClass(successBox, 'success'); 
         }
     }
 }
