@@ -1,4 +1,4 @@
-import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';
+import { toggleItemClass, getCountOfDigits } from './individualFunctions.js';
 import { checkPhoneNumbers } from './checkPhoneNumbers.js';
 
 
@@ -61,6 +61,7 @@ export const instructionForm = () => {
 
     function sendData(event) {
         event.preventDefault();
+        
         // get accept check
         const acceptDataInput = document.querySelector('.instruction__accept-data-input');
 
@@ -76,25 +77,24 @@ export const instructionForm = () => {
             // run a function to check a number in database
             checkPhoneNumbers();
 
-        } else if ((getCountOfDigits(phoneValue) == !11) && !(acceptDataInput.checked)) {
+        } else if (!(getCountOfDigits(phoneValue) == 11) && !(acceptDataInput.checked)) {
             
             const failText = document.querySelector('.instruction__fail-text');
             failText.textContent = `Введите номер телефона и примите условия`;
-        
+            toggleItemClass(failBox, 'fail');
             
         } else if (!(getCountOfDigits(phoneValue) == 11) && acceptDataInput.checked) {
 
             const failText = document.querySelector('.instruction__fail-text');
             failText.textContent = `Введите номер телефона`;
+            toggleItemClass(failBox, 'fail');
 
         } else if (getCountOfDigits(phoneValue) == 11 && !acceptDataInput.checked) {
 
             const failText = document.querySelector('.instruction__fail-text');
             failText.textContent = `Необходимо принять условия соглашения`;
+            toggleItemClass(failBox, 'fail');
 
-        } else {
-            // toggleItemClass(failBox, 'fail');
-            // addItemClass(successBox, 'success'); 
-        }
+        } 
     }
 }

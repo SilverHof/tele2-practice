@@ -16,5 +16,7 @@ export const fillNavbarByApi = (cityNameValues) => {
         navbarList.appendChild(navbarItem);
     }
 
+    
+
     console.log('created by api');
 }

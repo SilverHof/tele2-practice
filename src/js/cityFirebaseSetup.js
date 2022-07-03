@@ -1,5 +1,5 @@
 import { getFirebaseApi } from './getFirebaseApi.js';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection } from 'firebase/firestore';
 import { getCityApi } from './getCityApi.js';
 import { fillNavbarByLocalStorage } from './fillNavbarByLocalStorage.js';
 
