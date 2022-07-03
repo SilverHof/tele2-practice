@@ -1,4 +1,4 @@
-import { addItemClass, toggleItemClass } from './changeClassList.js';
+import { addItemClass, toggleItemClass, getCountOfDigits } from './individualFunctions.js';
 
 
 export const instructionForm = () => {
@@ -60,20 +60,23 @@ export const instructionForm = () => {
 
     function sendData(event) {
         event.preventDefault();
+        // get accept check
         const acceptDataInput = document.querySelector('.instruction__accept-data-input');
 
-
+        // get phone input
         const phoneInput = document.querySelector('.instruction__input');
-        console.log(phoneInput.value);
+
+        // get phone input's value 
+        const phoneValue = phoneInput.value;
         
 
-        
-        if(acceptDataInput.checked) {
+        if (getCountOfDigits(phoneValue) == 11 && acceptDataInput.checked) {
             toggleItemClass(successBox, 'success');
             addItemClass(failBox, 'fail');
+            
         } else {
             toggleItemClass(failBox, 'fail');
-            addItemClass(successBox, 'success');         
+            addItemClass(successBox, 'success'); 
         }
     }
 }
