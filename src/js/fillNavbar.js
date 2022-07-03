@@ -1,4 +1,4 @@
-export const fillNavbarByApi = (cityNameValues) => {
+export const fillNavbar = (cityNameValues) => {    
     // get key "name" from array of ojects to array of values
     const numberOfCityValue = cityNameValues.length;
 
@@ -15,8 +15,4 @@ export const fillNavbarByApi = (cityNameValues) => {
 
         navbarList.appendChild(navbarItem);
     }
-
-    
-
-    console.log('created by api');
 }

@@ -1,6 +1,6 @@
 import { getFirebaseApi } from './getFirebaseApi.js';
-import { getFirestore, collection, getDocs, query, doc } from 'firebase/firestore';
-import { addItemClass, toggleItemClass } from './individualFunctions.js';
+import { getFirestore, collection, getDocs} from 'firebase/firestore';
+import { addItemClass, toggleItemClass } from './extraFunctions.js';
 import { addPhoneNumbers } from './addPhoneNumbers.js';
 
 

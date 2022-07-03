@@ -1,4 +1,4 @@
-import { toggleItemClass } from './individualFunctions.js';
+import { toggleItemClass } from './extraFunctions.js';
 
 
 export const changeLocation = () => {

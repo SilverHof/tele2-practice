@@ -1,4 +1,4 @@
-import { toggleItemClass, getCountOfDigits } from './individualFunctions.js';
+import { toggleItemClass, getCountOfDigits } from './extraFunctions.js';
 import { checkPhoneNumbers } from './checkPhoneNumbers.js';
 
 
